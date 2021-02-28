@@ -20,7 +20,7 @@ const updatePaginate = (url) =>{
   axios.get(url).then(response => {
     setPage(response.data);
     response.data.results.map(poke => {
-      axios.get(`${poke.url}`).then(response2 =>{
+      return axios.get(`${poke.url}`).then(response2 =>{
           setPokemons(pokemons => [...pokemons, response2.data])
         })
       }) 
@@ -50,7 +50,7 @@ const renderPokeStart = () =>{
     setPokemons([]);
     let promises = []
     response.data.results.map(poke => {
-        promises.push(axios.get(`${poke.url}`).then(response2 =>{
+      return  promises.push(axios.get(`${poke.url}`).then(response2 =>{
           setPokemons(pokemons => [...pokemons, response2.data])
           
         }))
@@ -73,7 +73,7 @@ const renderPokeStart = () =>{
 
     <Search setSearchE={setSearchE} search={search}/>
     
-    <section className="pokeList">
+    <section className="grid grid-cols-3 gap-4">
 
     {load ? <img src="https://media1.tenor.com/images/a9b6aaaaea4e07053857d5348a36b7c0/tenor.gif" width="400"/> : (Array.isArray(pokemons) && pokemons.length > 1) ?  pokemons.sort((a, b) => a.id > b.id ? 1 : -1).map((pokemon) => {
             return <Pokemon key={pokemon.id} pokemon={pokemon} />

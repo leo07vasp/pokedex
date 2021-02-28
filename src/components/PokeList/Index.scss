@@ -1,14 +1,6 @@
 .pokeList {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
   align-items: center;
-  padding: 10px;
-  min-height: 730px;
-  margin-right: 10px;
-  background-color: #c2c2c2;
-  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
+  text-align: center;
 }
 
 .paginacao {

@@ -1,6 +1,5 @@
-import './App.scss';
+import './App.css';
 import ListPokemons from './components/PokeList/ListPokemons';
-import Detalhes from './components/Detalhes/Detalhe';
 
 
 
