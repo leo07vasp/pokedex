@@ -74,9 +74,10 @@ const renderPokeStart = () =>{
     <Search setSearchE={setSearchE} search={search}/>
     
     <section className="pokeList">
-    {(Array.isArray(pokemons) && pokemons.length > 1) ?   load ? 'carregando...' : pokemons.sort((a, b) => a.id > b.id ? 1 : -1).map((pokemon) => {
+
+    {load ? <img src="https://media1.tenor.com/images/a9b6aaaaea4e07053857d5348a36b7c0/tenor.gif" width="400"/> : (Array.isArray(pokemons) && pokemons.length > 1) ?  pokemons.sort((a, b) => a.id > b.id ? 1 : -1).map((pokemon) => {
             return <Pokemon key={pokemon.id} pokemon={pokemon} />
-      }) :<Pokemon key={pokemons.id} pokemon={pokemons} /> }
+      }) : <Pokemon key={pokemons.id} pokemon={pokemons} /> }
  
     </section>
 
