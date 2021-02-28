@@ -16,9 +16,9 @@ const ListPokemons = () => {
 
 const updatePaginate = (url) =>{
   setPokemons([]);
-  setLoad(true)
+  setLoad(true);
   axios.get(url).then(response => {
-    setPage(response.data)
+    setPage(response.data);
     response.data.results.map(poke => {
       axios.get(`${poke.url}`).then(response2 =>{
           setPokemons(pokemons => [...pokemons, response2.data])
@@ -31,31 +31,40 @@ const updatePaginate = (url) =>{
 
 
 const search = (e) =>{
-  e.preventDefault()
-  console.log(SearchE)
+  e.preventDefault();
+  if(SearchE){
   axios.get(`https://pokeapi.co/api/v2/pokemon/${SearchE}`).then(response => {
      setPokemons(response.data)
     console.log(response.data)
   })
+  }else{
+    renderPokeStart()
+  }
+}
+
+
+const renderPokeStart = () =>{
+  axios.get('https://pokeapi.co/api/v2/pokemon?limit=18').then(response => {
+    setLoad(true);
+    setPage(response.data);
+    setPokemons([]);
+    let promises = []
+    response.data.results.map(poke => {
+        promises.push(axios.get(`${poke.url}`).then(response2 =>{
+          setPokemons(pokemons => [...pokemons, response2.data])
+          
+        }))
+        
+      })
+      Promise.all(promises).then(()=>{
+        console.log('carregados'+ pokemons);
+        setLoad(false);
+      }) 
+    })
 }
 
  useEffect(() => {
-    axios.get('https://pokeapi.co/api/v2/pokemon?limit=18').then(response => {
-      setLoad(true)
-      setPage(response.data)
-      let promises = []
-      response.data.results.map(poke => {
-          promises.push(axios.get(`${poke.url}`).then(response2 =>{
-            setPokemons(pokemons => [...pokemons, response2.data])
-            
-          }))
-          
-        })
-        Promise.all(promises).then(()=>{
-          console.log('carregados'+ pokemons);
-          setLoad(false);
-        }) 
-      })
+  renderPokeStart()
       
   }, [])
 
@@ -63,12 +72,12 @@ const search = (e) =>{
     <>
 
     <Search setSearchE={setSearchE} search={search}/>
-
+    
     <section className="pokeList">
-      {pokemons.length}
-      {/* {load ? 'carregando...' : pokemons.sort((a, b) => a.id > b.id ? 1 : -1).map((pokemon) => {
+    {(Array.isArray(pokemons) && pokemons.length > 1) ?   load ? 'carregando...' : pokemons.sort((a, b) => a.id > b.id ? 1 : -1).map((pokemon) => {
             return <Pokemon key={pokemon.id} pokemon={pokemon} />
-      })} */}
+      }) :<Pokemon key={pokemons.id} pokemon={pokemons} /> }
+ 
     </section>
 
     

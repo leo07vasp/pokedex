@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+import './Index.scss';
 
 const Search = (props) =>{
 
@@ -19,7 +20,7 @@ const Search = (props) =>{
 
     return (
         <form onSubmit={(e) => props.search(e)}>
-            <input list="pokemons" onChange={e => props.setSearchE(e.target.value)} type="text" />
+            <input placeholder="Busca pokemons" list="pokemons" onChange={e => props.setSearchE(e.target.value)} type="text" />
             <datalist id="pokemons">
             {pokemons.map((pokemon) => {
                 return <option value={pokemon.name} />
