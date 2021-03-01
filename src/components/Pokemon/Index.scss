@@ -5,67 +5,70 @@
   border-radius: 2px;
   padding: 10px 20px;
   cursor: pointer;
-  min-height: 285px;
+  min-height: 310px;
   text-align: center;
   transition: all linear 0.2s;
+  background-color: #f2f2f2;
 
-  &.fighting {
-    background-color: #ef6239;
-  }
-  &.flying {
-    background-color: #94b2c7;
-  }
-  &.normal {
-    background-color: #ca98a6;
-  }
-  &.poison {
-    background-color: #9c6dda;
-  }
-  &.ground {
-    background-color: #6e491f;
-  }
-  &.rock {
-    background-color: #8b3e22;
-  }
-  &.bug {
-    background-color: #419950;
-  }
-  &.ghost {
-    background-color: #906791;
-  }
-  &.steel {
-    background-color: #46bd94;
-  }
-  &.fire {
-    background-color: #f74959;
-  }
-  &.water {
-    background-color: #85a8fb;
-  }
-  &.grass {
-    background-color: #5ccc51;
-  }
-  &.electric {
-    background-color: #f7eb72;
-  }
-  &.psychic {
-    background-color: #f55892;
-  }
-  &.ice {
-    background-color: #d8f0fa;
-  }
-  &.dragon {
-    background-color: #62cad9;
-  }
-  &.dark {
-    background-color: #595978;
-  }
-  &.fairy {
-    background-color: #eb4869;
-  }
-  &.unknown {
-  }
-  &.shadow {
+  .badge {
+    &.fighting {
+      background-color: #ef6239 !important;
+    }
+    &.flying {
+      background-color: #94b2c7 !important;
+    }
+    &.normal {
+      background-color: #ca98a6 !important;
+    }
+    &.poison {
+      background-color: #9c6dda !important;
+    }
+    &.ground {
+      background-color: #6e491f !important;
+    }
+    &.rock {
+      background-color: #8b3e22 !important;
+    }
+    &.bug {
+      background-color: #419950 !important;
+    }
+    &.ghost {
+      background-color: #906791 !important;
+    }
+    &.steel {
+      background-color: #46bd94 !important;
+    }
+    &.fire {
+      background-color: #f74959 !important;
+    }
+    &.water {
+      background-color: #85a8fb !important;
+    }
+    &.grass {
+      background-color: #5ccc51 !important;
+    }
+    &.electric {
+      background-color: #f7eb72 !important;
+    }
+    &.psychic {
+      background-color: #f55892 !important;
+    }
+    &.ice {
+      background-color: #d8f0fa !important;
+    }
+    &.dragon {
+      background-color: #62cad9 !important;
+    }
+    &.dark {
+      background-color: #595978 !important;
+    }
+    &.fairy {
+      background-color: #eb4869 !important;
+    }
+    &.unknown {
+    }
+    &.shadow {
+    }
   }
 
   img {

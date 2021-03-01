@@ -1,17 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
+body {
+  background: #141E30;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-.App {
-  padding: 30px;
-  align-items: center;
-  justify-content: center;
-  width: 640px;
-  margin-bottom: 40px;
-  padding-left: 10px;
-  margin: 25px auto 0;
-  background-color: rgba(146, 51, 234, 0.486);
-  border-radius: 10px;
-  box-shadow: 0 14px 45px rgba(0, 0, 0, 0.22), 0 18px 45px rgba(0, 0, 0, 0.22);
 }

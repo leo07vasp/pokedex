@@ -44,7 +44,7 @@ const search = (e) =>{
 
 
 const renderPokeStart = () =>{
-  axios.get('https://pokeapi.co/api/v2/pokemon?limit=18').then(response => {
+  axios.get('https://pokeapi.co/api/v2/pokemon?limit=8').then(response => {
     setLoad(true);
     setPage(response.data);
     setPokemons([]);
@@ -73,12 +73,14 @@ const renderPokeStart = () =>{
 
     <Search setSearchE={setSearchE} search={search}/>
     
-    <section className="grid grid-cols-3 gap-4">
+    <section >
+      <div className="row">
 
-    {load ? <img src="https://media1.tenor.com/images/a9b6aaaaea4e07053857d5348a36b7c0/tenor.gif" width="400"/> : (Array.isArray(pokemons) && pokemons.length > 1) ?  pokemons.sort((a, b) => a.id > b.id ? 1 : -1).map((pokemon) => {
-            return <Pokemon key={pokemon.id} pokemon={pokemon} />
-      }) : <Pokemon key={pokemons.id} pokemon={pokemons} /> }
- 
+        {load ? 'carregando...' : (Array.isArray(pokemons) && pokemons.length > 1) ?  pokemons.sort((a, b) => a.id > b.id ? 1 : -1).map((pokemon) => {
+                return <Pokemon key={pokemon.id} pokemon={pokemon} />
+          }) : <Pokemon key={pokemons.id} pokemon={pokemons} /> }
+      </div>
+
     </section>
 
     

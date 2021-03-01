@@ -19,13 +19,16 @@ const Search = (props) =>{
     }, [])
 
     return (
-        <form onSubmit={(e) => props.search(e)}>
-            <input placeholder="Busca pokemons" list="pokemons" onChange={e => props.setSearchE(e.target.value)} type="text" />
-            <datalist id="pokemons">
-            {pokemons.map((pokemon) => {
-                return <option value={pokemon.name} />
-            })}
-            </datalist>
+        <form className="row my-5 mb-2" onSubmit={(e) => props.search(e)}>
+            <div className="col-12">
+                <input className="form-control p-3" placeholder="Digite para buscar" list="pokemons" onChange={e => props.setSearchE(e.target.value)} type="text" />
+                <datalist id="pokemons">
+                {pokemons.map((pokemon) => {
+                    return <option value={pokemon.name} />
+                })}
+                </datalist>
+            </div>
+            
         </form>
     )
 }

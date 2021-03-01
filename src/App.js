@@ -5,7 +5,7 @@ import ListPokemons from './components/PokeList/ListPokemons';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App container">
       <ListPokemons />
       
     </div>
