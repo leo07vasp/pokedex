@@ -3,12 +3,15 @@
   // margin: 10px 10px 40px 10px;
   background-color: #fff;
   border-radius: 2px;
-  padding: 10px 20px;
   cursor: pointer;
   min-height: 310px;
   text-align: center;
   transition: all linear 0.2s;
   background-color: #f2f2f2;
+
+  .card-body {
+    padding: 10px 20px;
+  }
 
   .badge {
     &.fighting {
@@ -49,12 +52,14 @@
     }
     &.electric {
       background-color: #f7eb72 !important;
+      color: #000 !important;
     }
     &.psychic {
       background-color: #f55892 !important;
     }
     &.ice {
       background-color: #d8f0fa !important;
+      color: #000 !important;
     }
     &.dragon {
       background-color: #62cad9 !important;
@@ -74,6 +79,7 @@
   img {
     object-fit: cover;
     width: 100%;
+    padding: 10px;
   }
 
   p {
