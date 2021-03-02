@@ -22,9 +22,8 @@ const Paginate = (props) => {
 
     const goToPage = (e,nPagina) =>{
         e.preventDefault();
-        console.log(nPagina*8)
         console.log(`https://pokeapi.co/api/v2/pokemon?offset=${nPagina*8}&limit=8`)
-        // props.changePokes(`https://pokeapi.co/api/v2/pokemon?offset=${nPagina*8}&limit=8`)
+        props.changePokes(`https://pokeapi.co/api/v2/pokemon?offset=${(nPagina-1)*8}&limit=8`)
       }
     
 
