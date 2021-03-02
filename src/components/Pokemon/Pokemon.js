@@ -2,16 +2,22 @@ import React from 'react';
 import './Index.scss';
 
 
+const replaceImageSrc = (e, newSrc) =>{
+  e.target.src = process.env.PUBLIC_URL+newSrc
+}
+
+
 const Pokemon = (props) => {
   return (
     <div className="p-4 col-lg-3 col-md-6 col-sm-1">
       <div key={`pk-${props.pokemon.id}`} className={`poke rounded-3 card ${props.pokemon.types && props.pokemon.types[0].type.name }`}>
           {/* <h2 className="mb-3">{props.pokemon.id}</h2> */}
-          {/* <img src={`${process.env.PUBLIC_URL}/pokemons/name/${props.pokemon.name}.png`} /> */}
+          
           <h5 class="card-header">
           #{props.pokemon.id}
         </h5>
-          <img src={`https://pokeres.bastionbot.org/images/pokemon/${props.pokemon.id}.png`} />
+          <img src={`https://pokeres.bastionbot.org/images/pokemon/${props.pokemon.id}.png`}  onError={(e) => replaceImageSrc(e, `/pokemons/name/${props.pokemon.name}.png`)} />
+          {/* <img src={`${process.env.PUBLIC_URL}/pokemons/name/${props.pokemon.name}.png`} /> */}
           <div className="card-body">
               <h4 className="card-title">{props.pokemon.name}</h4>
               <div className="row">

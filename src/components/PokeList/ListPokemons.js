@@ -5,6 +5,8 @@ import Pokemon from '../Pokemon/Pokemon';
 import Paginate from "../Paginate/Paginate";
 import Search from "../Search/Search";
 import axios from 'axios';
+import loadImage from '../../assets/pokeball.gif' 
+
  
 
 const ListPokemons = () => {
@@ -65,7 +67,6 @@ const renderPokeStart = () =>{
 
  useEffect(() => {
   renderPokeStart()
-      
   }, [])
 
   return (
@@ -76,7 +77,7 @@ const renderPokeStart = () =>{
     <section >
       <div className="row">
 
-        {load ? 'carregando...' : (Array.isArray(pokemons) && pokemons.length > 1) ?  pokemons.sort((a, b) => a.id > b.id ? 1 : -1).map((pokemon) => {
+        {load ? <img src={loadImage} /> : (Array.isArray(pokemons) && pokemons.length > 1) ?  pokemons.sort((a, b) => a.id > b.id ? 1 : -1).map((pokemon) => {
                 return <Pokemon key={pokemon.id} pokemon={pokemon} />
           }) : <Pokemon key={pokemons.id} pokemon={pokemons} /> }
       </div>
