@@ -74,8 +74,8 @@ const renderPokeStart = () =>{
 
     <Search setSearchE={setSearchE} search={search}/>
     
-    <section >
-      <div className="row">
+    <section className="p-sm-10">
+      <div className="row base-list">
 
         {load ? <img src={loadImage} /> : (Array.isArray(pokemons) && pokemons.length > 1) ?  pokemons.sort((a, b) => a.id > b.id ? 1 : -1).map((pokemon) => {
                 return <Pokemon key={pokemon.id} pokemon={pokemon} />

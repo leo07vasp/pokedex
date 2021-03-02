@@ -39,13 +39,13 @@ const Paginate = (props) => {
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
-                <li class={`page-item ${!props.page.previous ? 'disabled' : ''}`}><a class="page-link" onClick={() => props.changePokes(props.page.previous)} href="#">Página anterior</a></li>
+                <li class={`page-item ${!props.page.previous ? 'disabled' : ''}`}><a class="page-link" onClick={() => props.changePokes(props.page.previous)} href="#">&lt;</a></li>
                 {actualPage > 2 && <li class={`page-item`}><a onClick={(e)=>goToPage(e,actualPage-2)} href="#" className="page-link">{actualPage-2}</a></li>}
                 {actualPage > 1 && <li class={`page-item`}><a onClick={(e)=>goToPage(e,actualPage-1)} href="#" className="page-link">{actualPage-1}</a></li>}
                 <li class={`page-item active`}><a className="page-link">{actualPage}</a></li>
                 {actualPage < 138 && <li class={`page-item`}><a onClick={(e)=>goToPage(e,actualPage+1)} href="#" className="page-link">{actualPage+1}</a></li>}
                 {(actualPage < 138  && actualPage < 137 ) && <li class={`page-item`}><a onClick={(e)=>goToPage(e,actualPage+2)} href="#" className="page-link">{actualPage+2}</a></li>}
-                <li class={`page-item ${!props.page.next ? 'disabled' : ''}`}><a href="#" class="page-link" onClick={() => props.changePokes(props.page.next)} href="#">Próxima página</a></li>
+                <li class={`page-item ${!props.page.next ? 'disabled' : ''}`}><a href="#" class="page-link" onClick={() => props.changePokes(props.page.next)} href="#">&gt; </a></li>
                 <li class="page-item">
                 <a onClick={() => props.changePokes('https://pokeapi.co/api/v2/pokemon?offset=1110&limit=8')} class="page-link" href="#" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
