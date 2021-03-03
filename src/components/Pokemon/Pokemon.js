@@ -17,13 +17,13 @@ const Pokemon = (props) => {
       <div
         onClick={(e) => toggleActiveClass(e)}
         key={`pk-${props.pokemon.id}`}
-        className={`poke front rounded-3 card ${
+        className={`poke rounded-3 card ${
           props.pokemon.types && props.pokemon.types[0].type.name
         }`}
       >
-        <div className="front">
-          {" "}
-          {/* <h2 className="mb-3">{props.pokemon.id}</h2> */}
+        <div className={`front ${
+          props.pokemon.types && props.pokemon.types[0].type.name
+        }`}>
           <h5 className="card-header">#{props.pokemon.id}</h5>
           <img
             src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${props.pokemon.id}.png`}
@@ -52,44 +52,44 @@ const Pokemon = (props) => {
           </div>
         </div>
         <div className="back">
-        <div className="mb-3 col-10">
-              {Array.isArray(props.pokemon.stats) &&
-                props.pokemon.stats.map((stat) => {
+            <div className="mb-3 col-10">
+                  {Array.isArray(props.pokemon.stats) &&
+                    props.pokemon.stats.map((stat) => {
+                      return (
+                        <>
+                          <p className="m-0 mt-2 text-start">{stat.stat.name}</p>
+                          <div className="progress" style={{ height: "1px" }}>
+                            <div
+                              className="progress-bar"
+                              role="progressbar"
+                              style={{ width: `${stat.base_stat}%` }}
+                              aria-valuenow={stat.base_stat}
+                              aria-valuemin="0"
+                              aria-valuemax="100"
+                            ></div>
+                          </div>
+                        </>
+                      );
+                    })}
+            </div>
+            <h6>Habilidades</h6>
+            <ul className="list-group col-10">
+              {Array.isArray(props.pokemon.abilities) &&
+                props.pokemon.abilities.map((abilitie, ) => {
                   return (
                     <>
-                      <p className="m-0 mt-2 text-start">{stat.stat.name}</p>
-                      <div className="progress" style={{ height: "1px" }}>
-                        <div
-                          className="progress-bar"
-                          role="progressbar"
-                          style={{ width: `${stat.base_stat}%` }}
-                          aria-valuenow={stat.base_stat}
-                          aria-valuemin="0"
-                          aria-valuemax="100"
-                        ></div>
-                      </div>
+                    <li className="list-group-item">
+                        {abilitie.ability.name}
+                      </li>
                     </>
                   );
                 })}
-            </div>
-          <h6>Habilidades</h6>
-          <ul className="list-group col-10">
-          {Array.isArray(props.pokemon.abilities) &&
-            props.pokemon.abilities.map((abilitie, ) => {
-              return (
-                <>
-                 <li className="list-group-item">
-                    {abilitie.ability.name}
-                  </li>
-                </>
-              );
-            })}
             </ul>
             <h6 className="mt-3">Medidas</h6>
             <ul className="list-group col-10">
-          <li className="list-group-item"><b>Height : </b> {props.pokemon.height}</li>
-          <li className="list-group-item"><b>Weight : </b> {props.pokemon.weight}</li>
-          </ul>
+              <li className="list-group-item"><b>Height : </b> {props.pokemon.height}</li>
+              <li className="list-group-item"><b>Weight : </b> {props.pokemon.weight}</li>
+            </ul>
           
         </div>
       </div>

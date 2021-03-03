@@ -29,14 +29,12 @@ const Paginate = (props) => {
 
   return (
     <nav className="text-white" aria-label="Page navigation example">
-       {/* {JSON.stringify(props.page.count)} */}
+       
        {nPage === 139 ? (
        <p className="text-white text-center">{`${(nPage * 8)-8 === 0 ? 1 : (nPage * 8)-6} - ${nPage * 8} de 1112`}</p>
        ) : (
         <p className="text-white text-center">{`${(nPage * 8)-8 === 0 ? 1 : (nPage * 8)-8} - ${nPage * 8} de 1112`}</p>
        )}
-       {/* {JSON.stringify(offset)} */}
-      {/* <p className="text-white text-center">{`${offset - 8} - ${offset} de ${JSON.stringify(props.page.count)}`}</p> */}
       <ul className="pagination justify-content-center">
         <li class="page-item">
           <a
